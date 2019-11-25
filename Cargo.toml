@@ -10,8 +10,16 @@ license = "Apache-2.0 OR MIT"
 
 [dependencies]
 libc = ">=0.2.39"
-kvm-bindings = { version = ">=0.2.0", features = ["fam-wrappers"] }
-vmm-sys-util = ">=0.2.1"
+
+[dependencies.kvm-bindings]
+git = "https://github.com/bjzhjing/kvm-bindings"
+branch = "serde_strict_v1"
+features = ["with-serde", "fam-wrappers"]
+
+[dependencies.vmm-sys-util]
+git = "https://github.com/aghecenco/vmm-sys-util"
+branch = "serde"
+features = ["with-serde"]
 
 [dev-dependencies]
 byteorder = ">=1.2.1"
