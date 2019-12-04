@@ -54,6 +54,15 @@ pub struct VmFd {
     run_size: usize,
 }
 
+impl std::clone::Clone for VmFd {
+    fn clone(&self) -> Self {
+        VmFd {
+            vm: self.vm.try_clone().unwrap(),
+            run_size: self.run_size,
+        }
+    }
+}
+
 impl VmFd {
     /// Creates/modifies a guest physical memory slot.
     ///
